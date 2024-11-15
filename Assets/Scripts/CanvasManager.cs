@@ -1,23 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
-{
+{   
+    [SerializeField] GameObject menu;
+    [SerializeField] GameObject character;
+    [SerializeField] GameObject character2;
+    [SerializeField] GameObject character3;
+    
+    [SerializeField] GameObject uiBar;
+    
+    public CinemachineVirtualCamera playerFollowCamera;
+
+    // Posición donde aparecerá el prefab
+    [SerializeField] private Vector3 spawnPosition;
+
+    // Rotación del prefab
+    [SerializeField ]private Quaternion spawnRotation;
     public void Lyago()
     {
-        GetComponent<SeleccionPersonaje>().ChangeAvatarByIndex(0);
-        Time.timeScale = 1f;
+        GameObject newObject = Instantiate(character, spawnPosition, spawnRotation);
+        Transform hips = newObject.transform.Find("PlayerCameraRoot"); 
+        playerFollowCamera.Follow = hips;
+        menu.SetActive(false);
+        uiBar.SetActive(true);
+        uiBar.GetComponent<HealthBar>().enabled = true;
+
     }
     public void MasterChiefTemu()
     {
-        GetComponent<SeleccionPersonaje>().ChangeAvatarByIndex(1);
-        Time.timeScale = 1f;
+         GameObject newObject = Instantiate(character2, spawnPosition, spawnRotation);
+        Transform hips = newObject.transform.Find("PlayerCameraRoot"); 
+        playerFollowCamera.Follow = hips;
+        menu.SetActive(false);
+        uiBar.SetActive(true);
+        uiBar.GetComponent<HealthBar>().enabled = true;
+
     }
     public void Ninja()
     {
-        GetComponent<SeleccionPersonaje>().ChangeAvatarByIndex(2);
-        Time.timeScale = 1f;
+        GameObject newObject = Instantiate(character3, spawnPosition, spawnRotation);
+        Transform hips = newObject.transform.Find("PlayerCameraRoot"); 
+        playerFollowCamera.Follow = hips;
+        menu.SetActive(false);
+        uiBar.SetActive(true);
+        uiBar.GetComponent<HealthBar>().enabled = true;
+
     }
     void ShowCursor(bool show)
     {

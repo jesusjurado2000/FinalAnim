@@ -1,7 +1,7 @@
 using StarterAssets;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class HealthAndDamage : MonoBehaviour
 {
@@ -12,10 +12,17 @@ public class HealthAndDamage : MonoBehaviour
     private Animator anim;
     private AudioSource damage;
     private AudioSource die;
-
-
+    private HealthBar healthBar;
+    public int currentHealth;
     private void Start()
     {
+        
+        print("aaaaaaaa");
+        healthBar = GameObject.FindGameObjectWithTag("Barra").GetComponent<HealthBar>();
+        print(healthBar);
+        currentHealth = vida;
+        Debug.Log(currentHealth);
+        healthBar.setMaxHealth(currentHealth);
         anim = GetComponent<Animator>();
         AudioSource[] audioSources = GetComponents<AudioSource>();
         damage = audioSources[0];
@@ -24,17 +31,18 @@ public class HealthAndDamage : MonoBehaviour
 
     public void RestarVida(int cantidad)
     {
-        if (!invencible && vida > 0)
+        if (!invencible && currentHealth > 0)
         {
-            vida -= cantidad;
+            currentHealth -= cantidad;
+            healthBar.setHealth(currentHealth);
             damage.Play();
             anim.Play("Damage");
             StartCoroutine(Invulnerabilidad());
             StartCoroutine(FrenarVelocidad());
-            if(vida == 0)
-            {
-                GameOver();
-            }
+        }
+        if(currentHealth == 0)
+        {
+            GameOver();
         }
     }
 
