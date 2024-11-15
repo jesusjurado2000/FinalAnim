@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-
 public class MakeDamage : MonoBehaviour
 {
     public int cantidad = 10;
@@ -11,13 +9,16 @@ public class MakeDamage : MonoBehaviour
         if(other.tag == "Player")
         {
             other.GetComponent<HealthAndDamage>().RestarVida(cantidad);
+
         }
     }
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
             other.GetComponent<HealthAndDamage>().RestarVida(cantidad);
+
         }
     }
 }
