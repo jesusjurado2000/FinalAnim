@@ -1328,6 +1328,7 @@ GameObject:
   - component: {fileID: 4439974920698278516}
   - component: {fileID: 344567609268264777}
   - component: {fileID: 7919806130926656748}
+  - component: {fileID: -474549868416905202}
   - component: {fileID: 6261854560268840457}
   - component: {fileID: 1176857547462236206}
   m_Layer: 8
@@ -1597,6 +1598,19 @@ MonoBehaviour:
   invencible: 0
   tiempoInvencible: 1
   tiempoFrenado: 0.2
+  currentHealth: 0
+--- !u!114 &-474549868416905202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407529447462937406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024e63e00a0e4c24fa0c0ea802593724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &6261854560268840457
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2819,8 +2833,30 @@ PrefabInstance:
     - {fileID: 5866666021909216657, guid: 745439aa95adb1c4882722f37fd3a4c6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 745439aa95adb1c4882722f37fd3a4c6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3998680971734629355}
   m_SourcePrefab: {fileID: 100100000, guid: 745439aa95adb1c4882722f37fd3a4c6, type: 3}
+--- !u!1 &1487407537333058872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 745439aa95adb1c4882722f37fd3a4c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757877851731034217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3998680971734629355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487407537333058872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024e63e00a0e4c24fa0c0ea802593724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2301205178172958594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 745439aa95adb1c4882722f37fd3a4c6,
